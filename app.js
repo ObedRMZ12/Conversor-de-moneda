@@ -24,6 +24,8 @@ const rates = {
     TRY: 32.50        // Lira Turca
 };
 
+// Obed
+
 // Símbolos de monedas
 const currencySymbols = {
     USD: '$',
