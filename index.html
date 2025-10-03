@@ -1,0 +1,213 @@
+ <!-- Obed Mateo Méndez Castaño 1107° -->
+  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obed Conversor De Divisas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">💱 Obed Méndez Conversor</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#acerca" class="nav-link">Acerca de</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <h1 class="main-title">Obed Conversor</h1>
+            <p class="subtitle">Convierte entre 20 monedas del mundo en tiempo real</p>
+
+            <!-- Conversor -->
+            <div class="converter-card">
+                <div class="converter-header">
+                    <h2>Realizar Conversión</h2>
+                    <div class="datetime" id="datetime"></div>
+                </div>
+
+                <form id="converterForm">
+                    <!-- Monto a convertir -->
+                    <div class="input-group">
+                        <label for="amount">Monto a convertir</label>
+                        <input 
+                            type="number" 
+                            id="amount" 
+                            placeholder="Ingresa la cantidad" 
+                            min="0" 
+                            step="0.01"
+                            required>
+                    </div>
+
+                    <!-- Moneda de origen -->
+                    <div class="currency-group">
+                        <div class="input-group">
+                            <label for="fromCurrency">Desde</label>
+                            <div class="select-wrapper">
+                                <select id="fromCurrency" required>
+                                    <option value="USD">🇺🇸 USD - Dólar Estadounidense</option>
+                                    <option value="EUR">🇪🇺 EUR - Euro</option>
+                                    <option value="GBP">🇬🇧 GBP - Libra Esterlina</option>
+                                    <option value="JPY">🇯🇵 JPY - Yen Japonés</option>
+                                    <option value="CNY">🇨🇳 CNY - Yuan Chino</option>
+                                    <option value="CAD">🇨🇦 CAD - Dólar Canadiense</option>
+                                    <option value="AUD">🇦🇺 AUD - Dólar Australiano</option>
+                                    <option value="CHF">🇨🇭 CHF - Franco Suizo</option>
+                                    <option value="MXN">🇲🇽 MXN - Peso Mexicano</option>
+                                    <option value="BRL">🇧🇷 BRL - Real Brasileño</option>
+                                    <option value="KRW">🇰🇷 KRW - Won Surcoreano</option>
+                                    <option value="INR">🇮🇳 INR - Rupia India</option>
+                                    <option value="RUB">🇷🇺 RUB - Rublo Ruso</option>
+                                    <option value="ARS">🇦🇷 ARS - Peso Argentino</option>
+                                    <option value="CLP">🇨🇱 CLP - Peso Chileno</option>
+                                    <option value="COP" selected>🇨🇴 COP - Peso Colombiano</option>
+                                    <option value="SEK">🇸🇪 SEK - Corona Sueca</option>
+                                    <option value="NOK">🇳🇴 NOK - Corona Noruega</option>
+                                    <option value="ZAR">🇿🇦 ZAR - Rand Sudafricano</option>
+                                    <option value="TRY">🇹🇷 TRY - Lira Turca</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Botón de intercambio -->
+                        <button type="button" class="swap-btn" id="swapBtn" title="Intercambiar monedas">
+                            ⇄
+                        </button>
+
+                        <!-- Moneda de destino -->
+                        <div class="input-group">
+                            <label for="toCurrency">Hasta</label>
+                            <div class="select-wrapper">
+                                <select id="toCurrency" required>
+                                    <option value="USD" selected>🇺🇸 USD - Dólar Estadounidense</option>
+                                    <option value="EUR">🇪🇺 EUR - Euro</option>
+                                    <option value="GBP">🇬🇧 GBP - Libra Esterlina</option>
+                                    <option value="JPY">🇯🇵 JPY - Yen Japonés</option>
+                                    <option value="CNY">🇨🇳 CNY - Yuan Chino</option>
+                                    <option value="CAD">🇨🇦 CAD - Dólar Canadiense</option>
+                                    <option value="AUD">🇦🇺 AUD - Dólar Australiano</option>
+                                    <option value="CHF">🇨🇭 CHF - Franco Suizo</option>
+                                    <option value="MXN">🇲🇽 MXN - Peso Mexicano</option>
+                                    <option value="BRL">🇧🇷 BRL - Real Brasileño</option>
+                                    <option value="KRW">🇰🇷 KRW - Won Surcoreano</option>
+                                    <option value="INR">🇮🇳 INR - Rupia India</option>
+                                    <option value="RUB">🇷🇺 RUB - Rublo Ruso</option>
+                                    <option value="ARS">🇦🇷 ARS - Peso Argentino</option>
+                                    <option value="CLP">🇨🇱 CLP - Peso Chileno</option>
+                                    <option value="COP">🇨🇴 COP - Peso Colombiano</option>
+                                    <option value="SEK">🇸🇪 SEK - Corona Sueca</option>
+                                    <option value="NOK">🇳🇴 NOK - Corona Noruega</option>
+                                    <option value="ZAR">🇿🇦 ZAR - Rand Sudafricano</option>
+                                    <option value="TRY">🇹🇷 TRY - Lira Turca</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón convertir -->
+                    <button type="submit" class="btn-convert">
+                        <span>Convertir</span>
+                        <span class="arrow">→</span>
+                    </button>
+                </form>
+
+                <!-- Resultado -->
+                <div class="result-container" id="resultContainer">
+                    <div class="result-content">
+                        <div class="result-label">Resultado de la conversión:</div>
+                        <div class="result-amount" id="resultAmount">0.00</div>
+                        <div class="result-detail" id="resultDetail"></div>
+                        <div class="conversion-rate" id="conversionRate"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Acerca de -->
+    <section id="acerca" class="about-section">
+        <div class="container">
+            <h2 class="section-title">Acerca del Proyecto</h2>
+            <div class="about-card">
+                <div class="about-content">
+                    <h3>Conversor de Divisas Global</h3>
+                    <p>Esta aplicación web permite realizar conversiones entre 20 de las monedas más importantes del mundo de manera rápida y sencilla. Utiliza tasas de cambio actualizadas para proporcionar resultados precisos.</p>
+                    
+                    <div class="author-info">
+                        <h4>👨‍💻 Desarrollador</h4>
+                        <p><strong>Obed Mateo Méndez Castaño</strong></p>
+                        <p>Estudiante de Sección 1107</p>
+                        <p>Proyecto desarrollado como parte del curso de Desarrollo Web, aplicando conocimientos de HTML5, CSS3 y JavaScript ES6 para crear una interfaz moderna, funcional y responsive.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">🌍</div>
+                            <h5>20 Divisas</h5>
+                            <p>Principales monedas mundiales</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <h5>Rápido</h5>
+                            <p>Conversión instantánea</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">✨</div>
+                            <h5>Moderno</h5>
+                            <p>Diseño elegante y limpio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contacto -->
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>💱 Obed Méndez Conversor</h3>
+                    <p>Tu herramienta confiable para conversión de divisas</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul class="contact-list">
+                        <li>📧 Email: omendezc12@inemkennedy.edu.co</li>
+                        <li>👔 Colegio: INEM Francisco De Paula Santander</li>
+                        <li>📍 Ubicación: Bogotá, Colombia</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Información</h4>
+                    <ul class="info-list">
+                        <li>Estudiante: Obed Mateo Méndez Castaño</li>
+                        <li>Sección: 1107</li>
+                        <li>Año: 2025</li>
+                        <li>Proyecto: Conversor de Divisas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Obed Mateo Méndez Castaño. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+ <!-- Obed Mateo Méndez Castaño 1107° -->
